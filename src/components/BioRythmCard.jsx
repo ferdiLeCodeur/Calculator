@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import dayjs from 'dayjs';
 import {
     IonCard, IonCardContent, IonCardHeader, IonCardTitle,
     IonContent,
@@ -8,20 +9,19 @@ import {
     IonToolbar
 } from "@ionic/react";
 
+function formatDate(isoString){
+    return dayjs(isoString).format('D MMM YYYY');
+}
+
 const BioRythmCard = ({targetDate}) => {
 
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>{targetDate}</IonTitle>
-                </IonToolbar>
-            </IonHeader>
 
             <IonContent fullscreen>
                 <IonCard className="ion-text-center">
                     <IonCardHeader>
-                        <IonCardTitle>Titre</IonCardTitle>
+                        <IonCardTitle>{formatDate(targetDate)}</IonCardTitle>
                     </IonCardHeader>
                     <IonCardContent>
                         <p>Physical: 83%</p>
